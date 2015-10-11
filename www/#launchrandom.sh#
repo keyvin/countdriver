@@ -1,0 +1,8 @@
+#!/bin/bash
+
+
+
+ $(ps aux | grep timer.py | awk '{print $2}' | grep -ve "grep")
+sudo /root/time_repo/time.py random
+
+

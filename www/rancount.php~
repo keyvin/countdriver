@@ -1,0 +1,7 @@
+<html>
+<body>
+
+randomly counting<?php $handle = popen("/var/www/launchrandom.sh><br>
+
+</body>
+</html> 

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+h = "blah"
+while :
+do
+ echo blah 
+done
