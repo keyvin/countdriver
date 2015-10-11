@@ -5,7 +5,7 @@ import random
 import time
 import RPi.GPIO as gpio
 import sys
-
+import os
 
 def getDirection(direction=-1):
         #  switch directions (positive if initial)
@@ -49,10 +49,14 @@ def strobe(bcd):
 
 def countmain(time_set, count_direction):
     direction = datetime.timedelta(seconds = count_direction)
+    our_time = datetime.datetime(2000,11,1,11,11,11)
+
+
+
     if count_direction == -1:    
         our_time = time_set
     if count_direction == 1:
-        our_time == datetime.datetime(time_set.day)
+        our_time == datetime.datetime(time_set.day, 1, 1,1,0,0,0)
     while True:
         #  wait one second
         
@@ -104,8 +108,10 @@ def ranmain():
         
         #  count second
         our_time = our_time + datetime.timedelta(0,time_dir)
-        print (str(our_time) + " " + str(count) + " " + str(ticks))
-        #  convert string to bcd
+        #print (str(our_time) + " " + str(count) + " " + str(ticks))
+        os.system('clear')
+        print ("\n\n\n\t", '{:02d}'.format(our_time.hour), ':', '{:02d}'.format(our_time.minute), ':', '{:02d}'.format(our_time.second), '\n')
+        
         bcd = makebcd(str(our_time))
         flag = True  
         delta = datetime.timedelta()
